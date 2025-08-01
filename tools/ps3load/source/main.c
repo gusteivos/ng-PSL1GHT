@@ -28,6 +28,7 @@
 #include <unistd.h>
 #include <errno.h>
 #include <libgen.h>
+#include <stdbool.h>
 #ifndef _WIN32
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -64,8 +65,6 @@ typedef signed char s8;
 typedef signed short s16;
 typedef signed int s32;
 typedef signed long long s64;
-
-typedef enum { false, true } bool;
 
 
 static const char *envvar = "PS3LOAD";

@@ -22,7 +22,7 @@ DATA		:=	data
 INCLUDES	:=	include
 
 TITLE		:=	audiotest sample - PSL1GHT
-APPID		:= 	PSL1SMPAUDTE
+APPID		:= 	PSL1AUDTE
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------

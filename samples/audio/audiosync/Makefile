@@ -22,7 +22,7 @@ DATA		:=	data
 INCLUDES	:=	include
 
 TITLE		:=	audiosync sample - PSL1GHT
-APPID		:= 	PSL1SMPAUDSY
+APPID		:= 	PSL1AUDSY
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------

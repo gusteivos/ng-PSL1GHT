@@ -21,15 +21,15 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
 
-TITLE		:=	Video Test - PSL1GHT
-APPID		:=	TEST0VID2
+TITLE		:=	videoTest sample - PSL1GHT
+APPID		:=	PSL1GRAVT
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS		=	-O2 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-O0 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map
@@ -114,6 +114,8 @@ clean:
 run:
 	ps3load $(OUTPUT).self
 
+#---------------------------------------------------------------------------------
+pkg:	$(BUILD) $(OUTPUT).pkg
 
 #---------------------------------------------------------------------------------
 else

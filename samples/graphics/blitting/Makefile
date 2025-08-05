@@ -20,15 +20,15 @@ BUILD		:=	build
 SOURCES		:=	source
 INCLUDES	:=	include
 
-TITLE		:=	Blitting Test - PSL1GHT
-APPID		:=	BLT00001
+TITLE		:=	blitting sample - PSL1GHT
+APPID		:=	PSL1GRABL
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS		=	-Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-O0 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map

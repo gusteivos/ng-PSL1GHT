@@ -1,6 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <math.h>
 
 #include <audio/audio.h>
@@ -27,13 +25,12 @@ void fillBuffer(f32 *buf)
 void playOneBlock(audioPortConfig *config)
 {
 	f32 *buf;
-	s32 ret = 0;
 	sys_event_t event;
 	u64 current_block = *(u64*)((u64)config->readIndex);
 	f32 *dataStart = (f32*)((u64)config->audioDataStart);
 	u32 audio_block_index = (current_block + 1)%config->numBlocks;
 
-	ret = sysEventQueueReceive(snd_queue,&event,20*1000);
+	sysEventQueueReceive(snd_queue,&event,20*1000);
 
 	buf = dataStart + config->channelCount*AUDIO_BLOCK_SAMPLES*audio_block_index;
 	fillBuffer(buf);

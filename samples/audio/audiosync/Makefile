@@ -21,15 +21,15 @@ SOURCES		:=	source
 DATA		:=	data
 INCLUDES	:=	include
 
-TITLE		:=	Audiosync sample - PSL1GHT
-APPID		:=	AUDIO0001
+TITLE		:=	audiosync sample - PSL1GHT
+APPID		:= 	PSL1SMPAUDSY
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS		=	-O2 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-O0 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map
@@ -37,7 +37,7 @@ LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	-laudio -lrt -llv2 -lm
+LIBS	:=	-laudio -lrt -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
@@ -114,6 +114,8 @@ clean:
 run:
 	ps3load $(OUTPUT).self
 
+#---------------------------------------------------------------------------------
+pkg:	$(BUILD) $(OUTPUT).pkg
 
 #---------------------------------------------------------------------------------
 else
@@ -139,4 +141,3 @@ $(OUTPUT).elf: $(OFILES)
 #---------------------------------------------------------------------------------
 endif
 #---------------------------------------------------------------------------------
-

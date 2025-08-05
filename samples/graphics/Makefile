@@ -1,4 +1,4 @@
-TARGETS := blitting rsxtest rsxtest_dl rsxtest_flip rsxtest_spu rsxtest_tile # cairo jpgtest pngtest videoTest
+TARGETS := blitting rsxtest rsxtest_dl rsxtest_flip rsxtest_spu rsxtest_tile videoTest # cairo jpgtest pngtest
 
 all:
 	@for TARGET in $(TARGETS); do $(MAKE) --no-print-directory -C $$TARGET; done

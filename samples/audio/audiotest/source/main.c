@@ -1,16 +1,8 @@
-/* VideoInfo:
- * This example querys the PS3 for its current reslution and prints it to tty.
- * You will need something that redirects tty to see the output.
- */
+#include <stdio.h>
+#include <math.h>
 
 #include <audio/audio.h>
-#include <psl1ght/lv2/timer.h>
-#include <math.h>
-#include <assert.h>
-#include <stdio.h>
 
-
-#define PI 3.14159265f
 
 void fillBuffer(float *buf)
 {
@@ -53,8 +45,8 @@ u32 playOneBlock(u64 *readIndex, float *audioDataStart)
 
 int main(int argc, const char* argv[])
 {
-	AudioPortParam params;
-	AudioPortConfig config;
+	audioPortParam params;
+	audioPortConfig config;
 	u32 portNum;
 
 	//initialize the audio system
@@ -68,9 +60,9 @@ int main(int argc, const char* argv[])
 	//8 16 or 32 block buffer
 	params.numBlocks = AUDIO_BLOCK_8;
 	//extended attributes
-	params.attr = 0;
+	params.attrib = AUDIO_PORT_INITLEVEL;
 	//sound level (1 is default)
-	params.level = 1;
+	params.level = 1.0f;
 
 	//open the port (still stopped)
 	ret=audioPortOpen(&params, &portNum);

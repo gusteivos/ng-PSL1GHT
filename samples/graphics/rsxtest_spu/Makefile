@@ -22,15 +22,15 @@ DATA		:=	data
 SHADERS		:=	shaders
 INCLUDES	:=	include
 
-TITLE		:=	RSX SPU Test - PSL1GHT
-APPID		:=	RSX00004
+TITLE		:=	rsxtest_spu sample - PSL1GHT
+APPID		:=	PSL1GRATS
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS		=	-Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-O0 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map

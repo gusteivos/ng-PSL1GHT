@@ -22,15 +22,15 @@ DATA		:=	data
 SHADERS		:=	shaders ../debugfont_renderer/shaders
 INCLUDES	:=	include ../debugfont_renderer/include
 
-TITLE		:=	RSX Test - PSL1GHT
-APPID		:=	RSX00003
+TITLE		:=	rsxtest sample - PSL1GHT
+APPID		:=	PSL1GRART
 CONTENTID	:=	UP0001-$(APPID)_00-0000000000000000
 
 #---------------------------------------------------------------------------------
 # options for code generation
 #---------------------------------------------------------------------------------
 
-CFLAGS		=	-Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
+CFLAGS		=	-O0 -Wall -mcpu=cell $(MACHDEP) $(INCLUDE)
 CXXFLAGS	=	$(CFLAGS)
 
 LDFLAGS		=	$(MACHDEP) -Wl,-Map,$(notdir $@).map

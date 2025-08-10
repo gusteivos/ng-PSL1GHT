@@ -3,6 +3,9 @@
 #include <string.h>
 #include <ppu-asm.h>
 #include <sys/spu.h>
+#include <sys/tty.h>
+
+#define SPU_TYY_CHANNEL 2
 
 #define ZEROPAD				1		/* pad with zero */
 #define SIGN				2		/* unsigned/signed long */
@@ -452,7 +455,9 @@ s32 spu_thread_printf(sys_spu_thread_t id, u32 arg_addr)
 	int len;
 
 	len = spu_thread_sprintf(__outstr, id, arg_addr);
-	fwrite(__outstr, 1, len, stdout);
 
-	return len;
+	u32 written;
+	sysTtyWrite(SPU_TYY_CHANNEL, __outstr, len, &written);
+
+	return written;
 }

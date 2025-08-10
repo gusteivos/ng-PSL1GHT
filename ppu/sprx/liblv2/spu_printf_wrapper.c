@@ -10,6 +10,8 @@
 #define MAX_QUEUE_SIZE			127
 #define	TERMINATING_PORT_NAME	0xFEE1DEAD
 
+#define SPU_PRINTF_HANDLER_STACK_SIZE 4096
+
 static u32 spu_printf_initialized = 0;
 
 static sys_event_queue_t eventQ;
@@ -60,7 +62,7 @@ s32 sysSpuPrintfInitialize(int prio, void (*entry)(void*))
 		return ret;
 	}
 	
-	ret = sysThreadCreate(&spu_printf_handler, run_entry, &eventQ, 200, 4096, THREAD_JOINABLE, "spu_printf_handler");
+	ret = sysThreadCreate(&spu_printf_handler, run_entry, &eventQ, prio, SPU_PRINTF_HANDLER_STACK_SIZE, THREAD_JOINABLE, "spu_printf_handler");
 	if (ret) {
 		return ret;
 	}
